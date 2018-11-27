@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
   <title>Quinnipiac Athletics</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,57 +9,195 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-  </head>
+</head>
 
 <body>
 
   <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
-  <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <div class="logo">
-            <a href="home.html"><img src="../images/logo.png" alt="logo"/></a>
-            <h1 class="navbar-brand">QU Athletics</h1>
-          </div>
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="logo">
+          <a href="home.html"><img src="../images/logo.png" alt="logo"/></a>
+          <h1 class="navbar-brand">QU Athletics</h1>
+        </div>
 
+      </div>
+      <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Teams <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="mens_hockey.html">Men’s Hockey</a></li>
+              <li><a href="womens_hockey.html">Women's Hockey</a></li>
+              <li class="active"><a href="mens_soccer.html">Men's Soccer</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="tickets.html">Tickets</a>
+          </li>
+          <li>
+            <a href="fans.html">Fans</a>
+          </li>
+          <li>
+            <a href="events.html">Events</a>
+          </li>
+          <li>
+            <a href="store.html">Store</a>
+          </li>
+          <li>
+            <a href="multimedia.html">Multimedia</a>
+          </li>
+          <li>
+            <a href="donate.html">Donate</a>
+          </li>
+        </ul>
+      </nav>
     </div>
-    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Teams <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="mens_hockey.html">Men’s Hockey</a></li>
-            <li><a href="womens_hockey.html">Women's Hockey</a></li>
-            <li class="active"><a href="mens_soccer.html">Men's Soccer</a></li>
+  </header>
+  <div class="container" style="padding-top:10%">
+    <div class = "holder">
+      <p> <b>Men's Soccer</b>  </p>
+    </div>
+    <br>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="../images/quinnipiac_soccer_1.jpg" alt="quinnipiac_soccer_1" style="width:100%;">
+        </div>
+
+        <div class="item">
+          <img src="../images/quinnipiac_soccer_2.jpg" alt="quinnipiac_soccer_2" style="width:100%;">
+        </div>
+
+        <div class="item">
+          <img src="../images/quinnipiac_soccer_3.jpg" alt="quinnipiac_soccer_3" style="width:100%;">
+        </div>
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <div class="info" style="padding-bottom:10%">
+      <div class = "schedule" id="schedule">
+        <h2>Schedule</h2>
+        <ul class = "schedule_list">
+          There are no remaing events this season
+        </ul>
+      </div>
+      <hr>
+      <div class = "roster" id="roster" >
+        <h2>Roster</h2>
+        <ul class = "roster_list">
+          <li>Chrysostomos Iakovidis</li>
+          <ul>
+            <li>Goalkeeper / 6'0" / 175 lbs</li>
+            <li>Jr. / Thessaloniki, Greece / Hellenic College </li>
           </ul>
-        </li>
-        <li>
-          <a href="tickets.html">Tickets</a>
-        </li>
-        <li>
-          <a href="fans.html">Fans</a>
-        </li>
-        <li>
-          <a href="events.html">Events</a>
-        </li>
-        <li>
-          <a href="store.html">Store</a>
-        </li>
-        <li>
-          <a href="multimedia.html">Multimedia</a>
-        </li>
-        <li>
-          <a href="donate.html">Donate</a>
-        </li>
+          <li>Jordon Bennett</li>
+          <ul>
+            <li>Defense / 5'11" / 155 lbs</li>
+            <li>Fr. / Tumi Umi, Australia / New South Wales Institute </li>
+          </ul>
+          <li>No 3: Peter Diliberatore</li>
+          <ul>
+            <li>Defense / 6'2" / 175 lbs</li>
+            <li>Jr. / Baerums Verk, Norway / Norges Toppidrets  </li>
+          </ul>
+          <li>No 4: Conor McCoy</li>
+          <ul>
+            <li>Defense / 6'4" / 180 lbs</li>
+            <li>Jr. / Forkhill, Northern Ireland / Abbey </li>
+          </ul>
+          <li>No 5: Simon Hillinger</li>
+          <ul>
+            <li>Defense / 5'6" / 140 lbs</li>
+            <li>So. / Ditzingen, Germany / Landesgymnasium</li>
+          </ul>
+        </ul>
+      </div>
+      <hr>
+      <div class = "resuls" id="results">
+        <h2>Results</h2>
+        <ul class = "results_list">
+          <li>Aug 24: Quinnipiac vs Boston College L, 1-2</li>
+          <li>Aug 27: Quinnipiac vs UMass Lowell T, 1-1</li>
+          <li>Sept 01: Quinnipiac at Saint Joseph's L, 2-4</li>
+          <li>Sept 07: Quinnipiac at New Hampshire L, 0-1</li>
+          <li>Sept 11: Quinnipiac at North Caroline State L, 0-1</li>
+          <li>Sept 15: Quinnipiac vs Albany W, 2-1(OT)</li>
+          <li>Sept 18: Quinnipiac at  Lafayette, Cancelled</li>
+          <li>Sept 21: Quinnipiac vs Central Connecticut State W, 2-1</li>
+          <li>Sept 26: Quinnipiac at Canisius W, 4-1</li>
+        </ul>
+      </div>
+      <hr>
+      <div class = "news" id="news">
+        <h2>News</h2>
+        <section class="wrapper">
+          <div class="content">
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                  <div class="card">
+                    <div class="img-card">
+                      <img src="../images/quinnipiac_soccer_4.jpg" alt="quinnipiac_soccer_4" style="width:100%;">
+                    </div>
+                    <div class="card-content">
+                      <h4 class="card-title">Eamon Whelan Selected to Google Cloud Academic All-District First Team</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <div class="card">
+                    <div class="img-card">
+                      <img src="../images/quinnipiac_soccer_5.jpg" alt="quinnipiac_soccer_5" style="width:100%;">
+                    </div>
+                    <div class="card-content">
+                      <h4 class="card-title">No. 2 Quinnipiac Hosts No. 3 Marist in MAAC Semifinals</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <div class="card">
+                    <div class="img-card">
+                      <img src="../images/quinnipiac_soccer_6.jpg" alt="quinnipiac_soccer_6" style="width:100%;">
+                    </div>
+                    <div class="card-content">
+                      <h4 class="card-title">Dejan Duric Named MAAC Rookie of the Week</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </ul>
-    </nav>
+    </div>
   </div>
-</header>
+</div>
+
 
 <div class="footer">
   <a href = "https://www.facebook.com/quathletics"><i class="fa fa-facebook"></i> </a>
@@ -70,22 +208,83 @@
 </div>
 
 <style>
-  .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 40px;
-    background-color: #0D3A67;
-    color: white;
-    text-align:right;
-    padding-right:20px;
-    padding-top:10px;
-  }
+.wrapper {
+  display: table;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 3%;
+}
+.row.content {height: 450px}
+.card {
+  display: block;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  transition: box-shadow .25s;
+}
+.card:hover {
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.img-card {
+  width: 100%;
+  height:200px;
+  border-top-left-radius:2px;
+  border-top-right-radius:2px;
+  display:block;
+  overflow: hidden;
+}
+.img-card img{
+  width: 100%;
+  height: 100%;
+  object-fit:fill;
+  transition: all .25s ease;
+}
+.card-content {
+  padding:15px;
+  text-align:left;
+}
+.card-title {
+  margin-top:0px;
+  font-weight: 700;
+  font-size: 1.65em;
+}
+.card-title a {
+  color: #000;
+  text-decoration: none !important;
+}
+
+.holder p {
+  font-size:30px;
+}
+.info hr {
+  border: 1px solid #0D3A67;
+  position: relative;
+  bottom: 8px;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  max-width: 100%;
+  height: 500px !important;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #0D3A67;
+  color: white;
+  text-align:right;
+  padding-right:20px;
+  padding-top:10px;
+}
 .logo img {
-width: 100px;
-position: relative;
-right: 10px;
+  width: 100px;
+  position: relative;
+  right: 10px;
 }
 @import 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans';
 .navbar-brand {
@@ -126,12 +325,12 @@ right: 10px;
 }
 
 .dropdown-menu {
-  background-color: #006B00
+  background-color: #0D3A67
 }
 
 .dropdown-menu>li>a:hover,
 .dropdown-menu>li>a:focus {
-  background-color: #002200
+  background-color: #326793
 }
 
 .navbar-inverse {
