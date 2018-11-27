@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Quinnipiac Bobcats</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="http://www.bootstrap-year-calendar.com/download/v1.1.0/bootstrap-year-calendar.min.js"></script>
+  <script src="http://www.bootstrap-year-calendar.com/download/v1.1.0/bootstrap-year-calendar.js"></script>
+  <script src="http://www.bootstrap-year-calendar.com/download/v1.1.0/bootstrap-year-calendar.min.css"></script>
+  <script src="http://www.bootstrap-year-calendar.com/download/v1.1.0/bootstrap-year-calendar.css"></script>
+  <script src="http://www.bootstrap-year-calendar.com/download/v1.1.0/bootstrap-year-calendar.d.ts"></script>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="home.html"><img src="../images/logo.png" alt="logo" style="width:42px;height:42px;border:0;"></a></li>
+          <li><a href="teams.html">Teams</a></li>
+          <li><a href="tickets.html">Tickets</a></li>
+          <li><a href="fans.html">Fans</a></li>
+          <li class="active"><a href="events.html">Events</a></li>
+          <li><a href="store.html">Store</a></li>
+          <li><a href="multimedia.html">Multimedia</a></li>
+          <li><a href="donate.html">Donate</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="calendar" data-provide="calendar"></div>
+
+  <div class="container-fluid text-center">
+    <h2>March 16</h2>
+    <p>Mens Hockey is playing at Maine. The Quinnipiac team is currently 10-3-1 the Maine team is currenlty 5-7-1. The Quinnipiac team is currently favored to win.</p>
+    <hr>
+  </div>
+
+  <div class="footer">
+    <i class="fa fa-facebook"></i>
+    <i class="fa fa-twitter-square"></i>
+    <i class="fa fa-instagram"></i>
+    <i class="fa fa-envelope"></i>
+    Quinnipiac University | 275 Mount Carmel Ave | Hamden, CT 06158, 203-582-8200
+  </div>
+
+  <script>
+    function editEvent(event) {
+      $('#event-modal input[name="event-index"]').val(event ? event.id : '');
+      $('#event-modal input[name="event-name"]').val(event ? event.name : '');
+      $('#event-modal input[name="event-location"]').val(event ? event.location : '');
+      $('#event-modal input[name="event-start-date"]').datepicker('update', event ? event.startDate : '');
+      $('#event-modal input[name="event-end-date"]').datepicker('update', event ? event.endDate : '');
+      $('#event-modal').modal();
+    }
+
+    function deleteEvent(event) {
+      var dataSource = $('#calendar').data('calendar').getDataSource();
+
+      for(var i in dataSource) {
+        if(dataSource[i].id == event.id) {
+          dataSource.splice(i, 1);
+          break;
+        }
+      }
+
+      $('#calendar').data('calendar').setDataSource(dataSource);
+    }
+
+    function saveEvent() {
+      var event = {
+        id: $('#event-modal input[name="event-index"]').val(),
+        name: $('#event-modal input[name="event-name"]').val(),
+        location: $('#event-modal input[name="event-location"]').val(),
+        startDate: $('#event-modal input[name="event-start-date"]').datepicker('getDate'),
+        endDate: $('#event-modal input[name="event-end-date"]').datepicker('getDate')
+      }
+
+      var dataSource = $('#calendar').data('calendar').getDataSource();
+
+      if(event.id) {
+        for(var i in dataSource) {
+          if(dataSource[i].id == event.id) {
+            dataSource[i].name = event.name;
+            dataSource[i].location = event.location;
+            dataSource[i].startDate = event.startDate;
+            dataSource[i].endDate = event.endDate;
+          }
+        }
+      }
+      else
+      {
+        var newId = 0;
+        for(var i in dataSource) {
+          if(dataSource[i].id > newId) {
+            newId = dataSource[i].id;
+          }
+        }
+
+        newId++;
+        event.id = newId;
+
+        dataSource.push(event);
+      }
+
+      $('#calendar').data('calendar').setDataSource(dataSource);
+      $('#event-modal').modal('hide');
+    }
+
+    $(function() {
+      var currentYear = new Date().getFullYear();
+
+      $('#calendar').calendar({
+        enableContextMenu: true,
+        enableRangeSelection: true,
+        contextMenuItems:[
+        {
+          text: 'Update',
+          click: editEvent
+        },
+        {
+          text: 'Delete',
+          click: deleteEvent
+        }
+        ],
+        selectRange: function(e) {
+          editEvent({ startDate: e.startDate, endDate: e.endDate });
+        },
+        mouseOnDay: function(e) {
+          if(e.events.length > 0) {
+            var content = '';
+
+            for(var i in e.events) {
+              content += '<div class="event-tooltip-content">'
+                + '<div class="event-name" style="color:' + e.events[i].color + '">' + e.events[i].name + '</div>'
+                + '<div class="event-location">' + e.events[i].location + '</div>'
+                + '</div>';
+              }
+
+              $(e.element).popover({
+                trigger: 'manual',
+                container: 'body',
+                html:true,
+                content: content
+              });
+
+              $(e.element).popover('show');
+            }
+          },
+          mouseOutDay: function(e) {
+            if(e.events.length > 0) {
+              $(e.element).popover('hide');
+            }
+          },
+          dayContextMenu: function(e) {
+            $(e.element).popover('hide');
+          },
+          dataSource: [
+          {
+            id: 0,
+            name: 'Mens Soccer at Princeton',
+            location: 'U.A.',
+            startDate: new Date(currentYear, 8, 3),
+            endDate: new Date(currentYear, 8, 3)
+          },
+          {
+            id: 1,
+            name: 'Mens Hockey at Maine',
+            location: 'TBA',
+            startDate: new Date(currentYear,  2, 16),
+            endDate: new Date(currentYear, 2, 16)
+          },
+          {
+            id: 2,
+            name: 'Womens Hockey at UCONN',
+            location: 'U.A.',
+            startDate: new Date(currentYear, 3, 29),
+            endDate: new Date(currentYear, 3, 29)
+          },
+          {
+            id: 3,
+            name: 'Mens Hockey vs Princeton',
+            location: 'U.A. Gym',
+            startDate: new Date(currentYear, 8, 1),
+            endDate: new Date(currentYear, 8, 1)
+          },
+          {
+            id: 4,
+            name: 'Womens Hockey vs Colgate',
+            location: 'U.A. Gym',
+            startDate: new Date(currentYear, 8, 9),
+            endDate: new Date(currentYear, 8, 9)
+          },
+          {
+            id: 5,
+            name: 'Mens Hockey vs Boston College',
+            location: 'Dorms',
+            startDate: new Date(currentYear, 10, 12),
+            endDate: new Date(currentYear, 10, 12)
+          },
+          {
+            id: 6,
+            name: 'Mens Soccer vs Boston College',
+            location: 'TBA',
+            startDate: new Date(currentYear, 2, 25),
+            endDate: new Date(currentYear, 2, 25)
+          },
+          ]
+        });
+
+        $('#save-event').click(function() {
+          saveEvent();
+        });
+      });
+    </script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 40px;
+        background-color: #000080;
+        color: white;
+        text-align:right;
+        padding-right:20px;
+        padding-top:10px;
+      }
+      .navbar {
+        margin-bottom: 0;
+        border-radius: 0;
+        background-color: #000080;
+      }
+
+      .banner {
+        text-align: center;
+        background-color: black;
+        color: white;
+        height: 60px;
+      }
+
+      .banner2 {
+        text-align: center;
+        background-color: black;
+        color: white;
+        height: 60px;
+        position: relative;
+        top: 20px;
+      }
+
+      h2 {
+        padding-top: 15px;
+      }
+
+      p {
+        position: relative;
+        top: 10px;
+      }
+
+      p.thick {
+        font-weight: bold;
+        font-size: 20;
+      }
+
+      .row.content {height: 450px}
+
+      .responsive {
+        width: 100%;
+        height: auto;
+      }
+
+      .sidenav {
+        padding-top: 20px;
+        background-color: #f5f5dc;
+        height: 2050px;
+      }
+
+
+
+      h4 {
+        text-align: center;
+      }
+      @media (min-width: 450px) {
+        h1.heading {
+          font-size: 3.55em;
+        }
+      }
+      @media (min-width: 760px) {
+        h1.heading {
+          font-size: 3.05em;
+        }
+      }
+      @media (min-width: 900px) {
+        h1.heading {
+          font-size: 3.25em;
+          margin: 0 0 0.3em;
+        }
+      }
+
+      .calendar {
+        padding: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        direction: ltr;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      .calendar:after {
+        content: "";
+        display:block;
+      }
+
+      .calendar.calendar-rtl {
+        direction: rtl;
+      }
+      .calendar.calendar-rtl table tr td span {
+        float: right;
+      }
+
+      .calendar table {
+        margin: auto;
+      }
+
+      .calendar table td,
+      .calendar table th {
+        text-align: center;
+        width: 20px;
+        height: 20px;
+        border: none;
+        padding: 4px 5px;
+        font-size:12px;
+      }
+
+      /* Header */
+      .calendar .calendar-header
+      {
+        width:100%;
+        margin-bottom:20px;
+      }
+
+      .calendar .calendar-header table
+      {
+        width:100%;
+      }
+
+      .calendar .calendar-header table th
+      {
+        font-size:22px;
+        padding:5px 10px;
+      }
+
+      .calendar .calendar-header table th:hover {
+        background: #eeeeee;
+        cursor: pointer;
+      }
+
+      .calendar .calendar-header table th.disabled,
+      .calendar .calendar-header table th.disabled:hover {
+        background: none;
+        cursor: default;
+        color:white;
+      }
+
+      .calendar .calendar-header table th.prev,
+      .calendar .calendar-header table th.next
+      {
+        width:20px;
+      }
+
+      .calendar .year-title {
+        font-weight:bold;
+        text-align:center;
+        height:20px;
+        width:auto;
+      }
+
+      .calendar .year-neighbor
+      {
+        color:#aaaaaa;
+      }
+
+      .calendar .year-neighbor2
+      {
+        color:#dddddd;
+      }
+
+      /* Months */
+      .calendar .months-container {
+        width:100%;
+        display:none;
+      }
+
+      .calendar .month-container {
+        text-align:center;
+        height:200px;
+        padding:0;
+      }
+
+      .calendar table.month th.month-title
+      {
+        font-size:16px;
+        padding-bottom: 5px;
+      }
+
+      .calendar table.month th.day-header
+      {
+        font-size:14px;
+      }
+
+
+      .calendar table.month tr td,
+      .calendar table.month tr th
+      {
+        padding:0;
+      }
+
+      .calendar table.month tr td.hidden,
+      .calendar table.month tr th.hidden
+      {
+        display:none;
+      }
+
+      .calendar table.month td.week-number {
+        cursor: default;
+        font-weight:bold;
+        border-right:1px solid #eee;
+        padding:5px;
+      }
+
+      .calendar .round-left {
+        -webkit-border-radius: 8px 0 0 8px;
+        -moz-border-radius: 8px 0 0 8px;
+        border-radius: 8px 0 0 8px;
+      }
+
+      .calendar .round-right {
+        webkit-border-radius: 0 8px 8px 0 ;
+        -moz-border-radius: 0 8px 8px 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .calendar table.month tr td .day-content {
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        padding: 5px 6px;
+      }
+
+      .table-striped .calendar table.month tr td,
+      .table-striped .calendar table.month tr th {
+        background-color: transparent;
+      }
+
+      .calendar table.month td.day .day-content:hover {
+        background: rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+      .calendar table.month tr td.old,
+      .calendar table.month tr td.new,
+      .calendar table.month tr td.old:hover,
+      .calendar table.month tr td.new:hover {
+        background: none;
+        cursor: default;
+      }
+      .calendar table.month tr td.disabled,
+      .calendar table.month tr td.disabled:hover {
+        color: #dddddd;
+      }
+
+      .calendar table.month td.day.disabled .day-content:hover {
+        background: none;
+        cursor: default;
+      }
+
+      .calendar table.month tr td.range .day-content {
+        background: rgba(0, 0, 0, 0.2);
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+      }
+
+      .calendar table.month tr td.range.range-start .day-content  {
+        border-top-left-radius:4px;
+        border-bottom-left-radius:4px;
+      }
+
+      .calendar table.month tr td.range.range-end .day-content  {
+        border-top-right-radius:4px;
+        border-bottom-right-radius:4px;
+      }
+
+      .calendar-context-menu,
+      .calendar-context-menu  .submenu {
+        border: 1px solid #ddd;
+        background-color: white;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
+        -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
+        position:absolute;
+        display:none;
+      }
+
+      .calendar-context-menu .item {
+        padding:5px 10px;
+        cursor:pointer;
+        display:table;
+        width:100%;
+      }
+
+      .calendar-context-menu .item:hover {
+        background:#eee;
+      }
+
+      .calendar-context-menu .item .content {
+        display:table-cell;
+      }
+
+      .calendar-context-menu .item span {
+        display:table-cell;
+        padding-left:10px;
+        text-align:right;
+      }
+
+      .calendar-context-menu .item span:last-child {
+        display:none;
+      }
+
+      .calendar-context-menu  .submenu {
+        left: 100%;
+        margin-top: -6px;
+      }
+
+      .calendar-context-menu  .item:hover > .submenu {
+        display:block;
+      }
+
+    </style>
+
+
+
+  </body>
+  </html>
