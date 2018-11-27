@@ -12,40 +12,55 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <div class="image1">
-    <img src="UA.jpg" class="responsive" alt=""/>
-  </div>
-
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
+  <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+    <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"></a>
+        <div class="logo">
+          <a href="home.html"><img src="../images/logo.png" alt="logo"/></a>
+          <h1 class="navbar-brand">QU Athletics</h1>
+        </div>
+
       </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="home.html"><img src="../images/logo.png" alt="logo" style="width:42px;height:42px;border:0;"></a></li>
-          <li><a href="teams.html">Teams</a></li>
-          <li><a href="tickets.html">Tickets</a></li>
-          <li><a href="fans.html">Fans</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="store.html">Store</a></li>
-          <li><a href="multimedia.html">Multimedia</a></li>
-          <li><a href="donate.html">Donate</a></li>
-        </ul>
+      <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"></a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Teams <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Men’s Hockey</a></li>
+              <li><a href="#">Women's Hockey</a></li>
+              <li><a href="#">Men's Soccer</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="tickets.html">Tickets</a>
+          </li>
+          <li>
+            <a href="fans.html">Fans</a>
+          </li>
+          <li>
+            <a href="#">Events</a>
+          </li>
+          <li>
+            <a href="store.html">Store</a>
+          </li>
+          <li>
+            <a href="multimedia.html">Multimedia</a>
+          </li>
+          <li class="active">
+            <a href="#">Donate</a>
+          </li>
         </ul>
-      </div>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-
-  <div class="container">
+  <div class="container" style="padding-top:10%">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -126,27 +141,27 @@
     </section>
 
     <section class="wrapper">
-    <div class="content">
-      <h1>Athlete of the Month</h1>
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-sm-4">
-            <div class="card">
-              <div class="img-card">
-                <img src="../images/soccer_athlete.jpg" alt="soccer"">
+      <div class="content">
+        <h1>Athlete of the Month</h1>
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-4">
+              <div class="card">
+                <div class="img-card">
+                  <img src="../images/soccer_athlete.jpg" alt="soccer"">
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-xs-12 col-sm-8">
-            <div class="card">
-              <div class="card-content">
-                <h4 class="card-title">Quinnipiac men's soccer junior Eamon Whelan (New Fairfield, Conn.) has been named New England Soccer Journal's 2018 Division I Breakout Player of the Year, as announced by the publication on Monday, Nov. 26. </h4>
+            <div class="col-xs-12 col-sm-8">
+              <div class="card">
+                <div class="card-content">
+                  <h4 class="card-title">Quinnipiac men's soccer junior Eamon Whelan (New Fairfield, Conn.) has been named New England Soccer Journal's 2018 Division I Breakout Player of the Year, as announced by the publication on Monday, Nov. 26. </h4>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
     </section>
     <div class="footer">
@@ -158,7 +173,124 @@
     </div>
 
     <style>
+      .logo img {
+      width: 100px;
+      position: relative;
+      right: 10px;
+      }
+      @import 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans';
+      .navbar-brand {
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+      }
+      .navbar-toggle {
+        position: relative;
+        top: 25px;
+      }
+      .navbar .nav {
+        font-family: 'Open Sans', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 1.2rem;
+        position: relative;
+        top: 25px;
+      }
 
+      .navbar-inverse {
+        background-color: #0D3A67;
+      }
+
+      .navbar-inverse .navbar-nav>.active>a:hover,
+      .navbar-inverse .navbar-nav>li>a:hover,
+      .navbar-inverse .navbar-nav>li>a:focus {
+        background-color: #0D3A67;
+      }
+
+      .navbar-inverse .navbar-nav>.active>a,
+      .navbar-inverse .navbar-nav>.open>a,
+      .navbar-inverse .navbar-nav>.open>a,
+      .navbar-inverse .navbar-nav>.open>a:hover,
+      .navbar-inverse .navbar-nav>.open>a,
+      .navbar-inverse .navbar-nav>.open>a:hover,
+      .navbar-inverse .navbar-nav>.open>a:focus {
+        background-color: #326793
+      }
+
+      .dropdown-menu {
+        background-color: #006B00
+      }
+
+      .dropdown-menu>li>a:hover,
+      .dropdown-menu>li>a:focus {
+        background-color: #002200
+      }
+
+      .navbar-inverse {
+        background-image: none;
+      }
+
+      .dropdown-menu>li>a:hover,
+      .dropdown-menu>li>a:focus {
+        background-image: none;
+      }
+
+      .navbar-inverse {
+        border-color: #003300
+      }
+
+      .navbar-inverse .navbar-brand {
+        color: #FFFFFF
+      }
+
+      .navbar-inverse .navbar-brand:hover {
+        color: #FFCC00
+      }
+
+      .navbar-inverse .navbar-nav>li>a {
+        color: #FFFFFF
+      }
+
+      .navbar-inverse .navbar-nav>li>a:hover,
+      .navbar-inverse .navbar-nav>li>a:focus {
+        color: #FFCC00
+      }
+
+      .navbar-inverse .navbar-nav>.active>a,
+      .navbar-inverse .navbar-nav>.open>a,
+      .navbar-inverse .navbar-nav>.open>a:hover,
+      .navbar-inverse .navbar-nav>.open>a:focus {
+        color: #FFCC00
+      }
+
+      .navbar-inverse .navbar-nav>.active>a:hover,
+      .navbar-inverse .navbar-nav>.active>a:focus {
+        color: #FFCC00
+      }
+
+      .dropdown-menu>li>a {
+        color: #FFFFFF
+      }
+
+      .dropdown-menu>li>a:hover,
+      .dropdown-menu>li>a:focus {
+        color: #FFCC00
+      }
+
+      .navbar-inverse .navbar-nav>.dropdown>a .caret {
+        border-top-color: #FFFFFF
+      }
+
+      .navbar-inverse .navbar-nav>.dropdown>a:hover .caret {
+        border-top-color: #FFFFFF
+      }
+
+      .navbar-inverse .navbar-nav>.dropdown>a .caret {
+        border-bottom-color: #FFFFFF
+      }
+
+      .navbar-inverse .navbar-nav>.dropdown>a:hover .caret {
+        border-bottom-color: #FFFFFF
+      }
       ul.a {
 
         list-style-type: circle;
@@ -175,7 +307,7 @@
         bottom: 0;
         width: 100%;
         height: 40px;
-        background-color: #000080;
+        background-color:  #0D3A67;
         color: white;
         text-align:right;
         padding-right:20px;
@@ -187,12 +319,6 @@
         width: 100%;
         padding-bottom: 3%;
       }
-      .navbar {
-        margin-bottom: 0;
-        border-radius: 0;
-        background-color: #000080;
-      }
-
       .row.content {height: 450px}
       .card {
         display: block;
