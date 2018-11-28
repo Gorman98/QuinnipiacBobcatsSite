@@ -61,7 +61,7 @@
     </div>
   </header>
 
-  <div class = "container-fluid" style="padding-top:10%">
+  <div class = "container-fluid" style="padding-top:6%">
     <div class = "gift">
       <h2><b>Give to Quinnipiac</b></h2>
       <h3>Your Generosity Makes a Difference</h3>
@@ -70,72 +70,68 @@
       <div class = "table">
         <div class = "conts">
           <h2>Your Gift</h2>
-          $ <input type="text" name="Gift"> <br>
-          <h3>What type of gift would you like to make today? </h3>
-          <input type="radio" name="payment" value="one-time"> I would like to make a One-Time Gift/Pledge Payment</br>
-          <input type="radio" name="payment" value="scheduled"> I would like to make Scheduled Payments </br>
-          <input type="radio" name="payment" value="perpetural"> I would like to make this a Perpetual Gift </br>
-          <h3>Where would like your gift to make an impact today?</h3>
+          $ <input type="text" name="Gift" required> <br>
+          <h3>What type of gift would you like to make? </h3>
+          <input type="radio" name="payment" value="one-time" checked> I would like to make a One-Time Gift/Pledge Payment</br>
+          <input type="radio" name="payment" value="scheduled" > I would like to make Scheduled Payments </br>
+          <input type="radio" name="payment" value="perpetural" > I would like to make this a Perpetual Gift </br>
+          <h3>Where would like your gift to make an impact?</h3>
           <div class = "form">
             <h3><b>Designations</b></h3>
             <div class = "row">
-              <div class = "col-sm-1">
+              <div class = "col-sm-2">
               </div>
-              <div class = "col-sm-5">
+              <div class = "col-sm-2">
                 <b>Organization</b>
               </div>
-              <div class = "col-sm-2" style="text-align:center">
+              <div class = "col-sm-3" style="text-align:left">
                 <b>Amount</b>
               </div>
-              <div class = "col-sm-2" style="text-align:center">
+              <div class = "col-sm-3" style="text-align:left">
                 <b>Percentage</b>
               </div>
             </div>
-            <br>
             <div class = "row">
-              <div class = "col-sm-1">
+              <div class = "col-sm-2">
               </div>
-              <div class = "col-sm-5">
+              <div class = "col-sm-2">
                 Men's Ice Hockey
               </div>
-              <div class = "col-sm-2">
+              <div class = "col-sm-3">
                 $ <input type="text" name="mens_ice_amount">
               </div>
-              <div class = "col-sm-2">
+              <div class = "col-sm-3">
                 <input type="text" name="mens_ice_percent"> %
               </div>
             </div>
-            <br>
             <div class = "row">
-              <div class = "col-sm-1">
-              </div>
-              <div class = "col-sm-5">
-                Womens's Ice Hockey
+              <div class = "col-sm-2">
               </div>
               <div class = "col-sm-2">
+                Women's Ice Hockey
+              </div>
+              <div class = "col-sm-3">
                 $ <input type="text" name="womens_ice_amount">
               </div>
-              <div class = "col-sm-2">
+              <div class = "col-sm-3">
                 <input type="text" name="womens_ice_percent"> %
               </div>
             </div>
-            <br>
             <div class = "row">
-              <div class = "col-sm-1">
+              <div class = "col-sm-2">
               </div>
-              <div class = "col-sm-5">
+              <div class = "col-sm-2">
                 Men's Soccer Hockey
               </div>
-              <div class = "col-sm-2">
+              <div class = "col-sm-3">
                 $ <input type="text" name="mens_soccer_amount">
               </div>
-              <div class = "col-sm-2">
+              <div class = "col-sm-3" style="padding-bottom:1%;">
                 <input type="text" name="mens_soccer_percent"> %
               </div>
             </div>
-            <br>
             <div class = "buttonHolder">
-              <input type="submit" name="submit" value="Submit">
+              <input type="submit" name="submit" value="Submit" style="width: 200px; left: 250; top: 250;">
             </div>
           </div>
         </div>
@@ -152,6 +148,9 @@
   </div>
 
   <style>
+  .row{
+    padding-top: 1%;
+  }
   .buttonHolder{
     text-align: center;
     padding-bottom: 5%;
@@ -161,17 +160,18 @@
     padding-left: 1.5%;
   }
   .gift{
-    padding:2%;
+    padding:0.5%;
   }
   .table{
     padding-left: 8%;
     padding-right: 8%;
-    padding-top: 1%;
   }
   .conts{
     border:2px black solid;
-    padding:2%;
-    max-height: 550px;
+    padding-top: 0.25%;
+    padding-left: 2%;
+    padding-right: 2%;
+    max-height: 508px;
   }
   .footer {
     position: fixed;
